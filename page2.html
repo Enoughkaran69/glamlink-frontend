@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GlamLink Shop</title>
+    <!--
+        Tailwind CSS CDN for utility-first styling.
+        This provides a wide range of pre-built classes for a fast and responsive design.
+    -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /*
+          Set the 'Inter' font family for a clean, modern look.
+        */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* A custom SVG play icon for the video cards */
+        .play-icon {
+            filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.2));
+            width: 50px;
+            height: 50px;
+        }
+        /* Custom aspect ratio for 9:16 video */
+        .aspect-9by16 {
+            aspect-ratio: 9 / 16;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center py-12">
+
+    <!-- Main content container -->
+    <div class="w-full max-w-lg bg-white rounded-3xl shadow-2xl p-4 sm:p-6 md:p-8 transition-all duration-500" id="main-container" style="box-sizing:border-box;">
+
+        <!-- Header section with logo and navigation -->
+        <header class="flex flex-col items-center">
+            <!-- Logo with a gradient text effect -->
+            <div class="text-4xl font-extrabold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-pink-500">
+                glamlink
+            </div>
+            <!-- Navigation links -->
+        <nav class="flex justify-around w-full max-w-md mb-6">
+                <a href="#" class="text-gray-600 font-medium hover:text-purple-600 transition-colors duration-300 relative group">
+                    Home
+                    <span class="absolute bottom-0 left-1/2 w-0 h-0.5 bg-purple-500 rounded-full transition-all duration-300 transform -translate-x-1/2 group-hover:w-full"></span>
+                </a>
+                <a href="#" class="text-gray-600 font-medium hover:text-purple-600 transition-colors duration-300 relative group">
+                    Products
+                    <span class="absolute bottom-0 left-1/2 w-0 h-0.5 bg-purple-500 rounded-full transition-all duration-300 transform -translate-x-1/2 group-hover:w-full"></span>
+                </a>
+                <a href="#" class="text-gray-600 font-medium hover:text-purple-600 transition-colors duration-300 relative group">
+                    About
+                    <span class="absolute bottom-0 left-1/2 w-0 h-0.5 bg-purple-500 rounded-full transition-all duration-300 transform -translate-x-1/2 group-hover:w-full"></span>
+                </a>
+                <a href="#" class="text-gray-600 font-medium hover:text-purple-600 transition-colors duration-300 relative group">
+                    Contact
+                    <span class="absolute bottom-0 left-1/2 w-0 h-0.5 bg-purple-500 rounded-full transition-all duration-300 transform -translate-x-1/2 group-hover:w-full"></span>
+                </a>
+            </nav>
+        </header>
+
+        <!-- Search bar with rounded design and button -->
+    <div class="flex w-full mb-8">
+            <input type="text" id="search-input" placeholder="Search for products..." class="flex-grow p-3 rounded-l-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500 text-gray-700">
+            <button id="search-btn" class="p-3 bg-purple-500 text-white rounded-r-full hover:bg-purple-600 transition-colors duration-300 active:scale-95">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Main content area with a responsive two-column grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Left Column: Main video reel -->
+            <div class="col-span-1 md:col-span-1 relative bg-purple-400 rounded-2xl overflow-hidden shadow-xl aspect-9by16 flex items-center justify-center video-card" data-product="Featured Reel" style="max-width:320px; max-height:570px; width:100%; height:auto; margin:auto;">
+                <img src="https://placehold.co/270x480/9b59b6/ffffff?text=Featured+Reel" alt="Featured Reel Video Thumbnail" class="w-full h-full object-cover" style="max-width:320px; max-height:570px; width:100%; height:auto;">
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <svg class="play-icon text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Right Column: Related products -->
+            <div class="col-span-1 md:col-span-1 flex flex-col gap-4">
+                <!-- Product Card 1 -->
+                <div class="bg-gray-100 rounded-xl p-4 shadow-md flex items-center gap-4 product-card" data-product="Moisturizing Cream">
+                    <img src="https://placehold.co/60x60/805ad5/ffffff?text=Cream" alt="Moisturizing Cream" class="rounded-lg">
+                    <div class="flex-grow">
+                        <h4 class="text-sm font-semibold text-gray-800">Moisturizing Cream</h4>
+                        <p class="text-gray-500 text-xs">$24.99</p>
+                    </div>
+                </div>
+                <!-- Product Card 2 -->
+                <div class="bg-gray-100 rounded-xl p-4 shadow-md flex items-center gap-4 product-card" data-product="Volumizing Mascara">
+                    <img src="https://placehold.co/60x60/805ad5/ffffff?text=Mascara" alt="Volumizing Mascara" class="rounded-lg">
+                    <div class="flex-grow">
+                        <h4 class="text-sm font-semibold text-gray-800">Volumizing Mascara</h4>
+                        <p class="text-gray-500 text-xs">$15.50</p>
+                    </div>
+                </div>
+                <!-- Product Card 3 -->
+                <div class="bg-gray-100 rounded-xl p-4 shadow-md flex items-center gap-4 product-card" data-product="Exfoliating Scrub">
+                    <img src="https://placehold.co/60x60/805ad5/ffffff?text=Scrub" alt="Exfoliating Scrub" class="rounded-lg">
+                    <div class="flex-grow">
+                        <h4 class="text-sm font-semibold text-gray-800">Exfoliating Scrub</h4>
+                        <p class="text-gray-500 text-xs">$19.00</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- A simple footer -->
+        <footer class="mt-8 text-center text-gray-400 text-sm">
+            &copy; 2023 GlamLink. All rights reserved.
+        </footer>
+    </div>
+
+    <!-- Simple JavaScript for interactivity -->
+    <script>
+        // Smooth page transition
+        function smoothNavigate(url) {
+            const container = document.getElementById('main-container');
+            container.style.opacity = '0';
+            setTimeout(() => {
+                window.location.href = url;
+            }, 350);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchBtn = document.getElementById('search-btn');
+            const searchInput = document.getElementById('search-input');
+            const videoCard = document.querySelector('.video-card');
+            const productCards = document.querySelectorAll('.product-card');
+            const navLinks = document.querySelectorAll('nav a');
+
+            // Fade in on load
+            const container = document.getElementById('main-container');
+            container.style.opacity = '0';
+            setTimeout(() => {
+                container.style.transition = 'opacity 0.5s';
+                container.style.opacity = '1';
+            }, 100);
+
+            // Navigation links: Home goes to index.html, Products goes to page2.html
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const text = link.textContent.trim().toLowerCase();
+                    if (text === 'products') {
+                        smoothNavigate('../page2.html');
+                    } else if (text === 'home') {
+                        smoothNavigate('../index.html');
+                    } else {
+                        alert('Navigation: ' + text.charAt(0).toUpperCase() + text.slice(1));
+                    }
+                });
+            });
+
+            // Handle search button click
+            searchBtn.addEventListener('click', () => {
+                const query = searchInput.value;
+                if (query) {
+                    alert(`Searching for: "${query}"`);
+                } else {
+                    alert('Please enter a search query!');
+                }
+            });
+
+            // Handle video card click
+            if (videoCard) {
+                videoCard.addEventListener('click', () => {
+                    const title = videoCard.getAttribute('data-product');
+                    alert(`Playing video for "${title}"`);
+                });
+            }
+
+            // Handle product card clicks
+            productCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    const title = card.getAttribute('data-product');
+                    alert(`Viewing product: "${title}"`);
+                });
+            });
+        });
+
+        // Simple alert for demonstration purposes. In a real app, a modal would be used.
+        function alert(message) {
+            const alertBox = document.createElement('div');
+            alertBox.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: #4a4a4a;
+                color: white;
+                padding: 1rem 2rem;
+                border-radius: 0.75rem;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+                z-index: 1000;
+                font-family: 'Inter', sans-serif;
+                font-size: 1rem;
+                text-align: center;
+                animation: fadein 0.3s, fadeout 0.3s 2s;
+            `;
+            alertBox.textContent = message;
+            document.body.appendChild(alertBox);
+
+            setTimeout(() => {
+                alertBox.remove();
+            }, 2500);
+        }
+    </script>
+</body>
+</html>

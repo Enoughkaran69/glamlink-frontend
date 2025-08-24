@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GlamLink</title>
+    <!--
+        Tailwind CSS CDN for utility-first styling.
+        This provides a wide range of pre-built classes for a fast and responsive design.
+    -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /*
+          Set the 'Inter' font family for a clean, modern look.
+        */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* A custom SVG play icon for the video cards */
+        .play-icon {
+            filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.2));
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center py-12">
+
+    <!-- Main content container -->
+    <div class="w-full max-w-lg bg-white rounded-3xl shadow-2xl p-6 md:p-8 transition-all duration-500" id="main-container">
+
+        <!-- Header section with logo and navigation -->
+        <header class="flex flex-col items-center">
+            <!-- Logo with a gradient text effect -->
+            <div class="text-4xl font-extrabold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-pink-500">
+                glamlink
+            </div>
+            <!-- Navigation links -->
+        <nav class="flex justify-around w-full max-w-md mb-6">
+                <a href="#" class="text-gray-600 font-medium hover:text-purple-600 transition-colors duration-300 relative group">
+                    Home
+                    <span class="absolute bottom-0 left-1/2 w-0 h-0.5 bg-purple-500 rounded-full transition-all duration-300 transform -translate-x-1/2 group-hover:w-full"></span>
+                </a>
+                <a href="#" class="text-gray-600 font-medium hover:text-purple-600 transition-colors duration-300 relative group">
+                    Products
+                    <span class="absolute bottom-0 left-1/2 w-0 h-0.5 bg-purple-500 rounded-full transition-all duration-300 transform -translate-x-1/2 group-hover:w-full"></span>
+                </a>
+                <a href="#" class="text-gray-600 font-medium hover:text-purple-600 transition-colors duration-300 relative group">
+                    About
+                    <span class="absolute bottom-0 left-1/2 w-0 h-0.5 bg-purple-500 rounded-full transition-all duration-300 transform -translate-x-1/2 group-hover:w-full"></span>
+                </a>
+                <a href="#" class="text-gray-600 font-medium hover:text-purple-600 transition-colors duration-300 relative group">
+                    Contact
+                    <span class="absolute bottom-0 left-1/2 w-0 h-0.5 bg-purple-500 rounded-full transition-all duration-300 transform -translate-x-1/2 group-hover:w-full"></span>
+                </a>
+            </nav>
+        </header>
+
+        <!-- Search bar with rounded design and button -->
+    <div class="flex w-full mb-8">
+            <input type="text" id="search-input" placeholder="Search for products..." class="flex-grow p-3 rounded-l-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500 text-gray-700">
+            <button id="search-btn" class="p-3 bg-purple-500 text-white rounded-r-full hover:bg-purple-600 transition-colors duration-300 active:scale-95">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- New: Categories Section -->
+    <section class="mb-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4 text-center">Shop by Category</h2>
+            <div class="flex justify-around items-center">
+                <div class="flex flex-col items-center cursor-pointer hover:scale-110 transition-transform duration-300">
+                    <div class="w-16 h-16 bg-blue-200 rounded-full flex items-center justify-center shadow-lg">
+                        <span class="text-3xl">👗</span>
+                    </div>
+                    <p class="mt-2 text-sm text-gray-600">Fashion</p>
+                </div>
+                <div class="flex flex-col items-center cursor-pointer hover:scale-110 transition-transform duration-300">
+                    <div class="w-16 h-16 bg-pink-200 rounded-full flex items-center justify-center shadow-lg">
+                        <span class="text-3xl">💄</span>
+                    </div>
+                    <p class="mt-2 text-sm text-gray-600">Beauty</p>
+                </div>
+                <div class="flex flex-col items-center cursor-pointer hover:scale-110 transition-transform duration-300">
+                    <div class="w-16 h-16 bg-yellow-200 rounded-full flex items-center justify-center shadow-lg">
+                        <span class="text-3xl">🏠</span>
+                    </div>
+                    <p class="mt-2 text-sm text-gray-600">Decor</p>
+                </div>
+                <div class="flex flex-col items-center cursor-pointer hover:scale-110 transition-transform duration-300">
+                    <div class="w-16 h-16 bg-purple-200 rounded-full flex items-center justify-center shadow-lg">
+                        <span class="text-3xl">🧘‍♀️</span>
+                    </div>
+                    <p class="mt-2 text-sm text-gray-600">Wellness</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Grid for "Reel Videos" -->
+    <section>
+            <h2 class="text-2xl font-bold text-gray-800 mb-4 text-center">Featured Videos</h2>
+            <div class="grid grid-cols-2 gap-4">
+                <!-- Video Card 1 -->
+                <div class="relative bg-purple-400 aspect-square rounded-2xl overflow-hidden shadow-lg transform transition-all duration-300 hover:scale-105 group cursor-pointer video-card" data-product="Product 1">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <!-- Play button SVG -->
+                        <svg class="play-icon text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                    <!-- Product title overlay -->
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/50 to-transparent p-4">
+                        <h4 class="text-white text-lg font-semibold text-center">Product 1</h4>
+                    </div>
+                    <!-- Action icons -->
+                    <div class="absolute top-2 right-2 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <button class="p-1.5 bg-white/80 rounded-full text-red-500 hover:bg-white transition-colors duration-200 active:scale-90">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Video Card 2 -->
+                <div class="relative bg-pink-400 aspect-square rounded-2xl overflow-hidden shadow-lg transform transition-all duration-300 hover:scale-105 group cursor-pointer video-card" data-product="Product 2">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                         <svg class="play-icon text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/50 to-transparent p-4">
+                        <h4 class="text-white text-lg font-semibold text-center">Product 2</h4>
+                    </div>
+                    <div class="absolute top-2 right-2 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <button class="p-1.5 bg-white/80 rounded-full text-red-500 hover:bg-white transition-colors duration-200 active:scale-90">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Video Card 3 -->
+                <div class="relative bg-blue-400 aspect-square rounded-2xl overflow-hidden shadow-lg transform transition-all duration-300 hover:scale-105 group cursor-pointer video-card" data-product="Product 3">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                         <svg class="play-icon text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/50 to-transparent p-4">
+                        <h4 class="text-white text-lg font-semibold text-center">Product 3</h4>
+                    </div>
+                    <div class="absolute top-2 right-2 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <button class="p-1.5 bg-white/80 rounded-full text-red-500 hover:bg-white transition-colors duration-200 active:scale-90">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Video Card 4 -->
+                <div class="relative bg-teal-400 aspect-square rounded-2xl overflow-hidden shadow-lg transform transition-all duration-300 hover:scale-105 group cursor-pointer video-card" data-product="Product 4">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                         <svg class="play-icon text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/50 to-transparent p-4">
+                        <h4 class="text-white text-lg font-semibold text-center">Product 4</h4>
+                    </div>
+                    <div class="absolute top-2 right-2 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <button class="p-1.5 bg-white/80 rounded-full text-red-500 hover:bg-white transition-colors duration-200 active:scale-90">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- A simple footer -->
+        <footer class="mt-8 text-center text-gray-400 text-sm">
+            &copy; 2023 GlamLink. All rights reserved.
+        </footer>
+    </div>
+
+    <!-- Simple JavaScript for interactivity -->
+    <script>
+        // Smooth page transition
+        function smoothNavigate(url) {
+            const container = document.getElementById('main-container');
+            container.style.opacity = '0';
+            setTimeout(() => {
+                window.location.href = url;
+            }, 350);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchBtn = document.getElementById('search-btn');
+            const searchInput = document.getElementById('search-input');
+            const productCards = document.querySelectorAll('.video-card');
+            const navLinks = document.querySelectorAll('nav a');
+
+            // Fade in on load
+            const container = document.getElementById('main-container');
+            container.style.opacity = '0';
+            setTimeout(() => {
+                container.style.transition = 'opacity 0.5s';
+                container.style.opacity = '1';
+            }, 100);
+
+            // Navigation links: Home goes to index.html, Products goes to page2.html
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const text = link.textContent.trim().toLowerCase();
+                    if (text === 'products') {
+                        smoothNavigate('../page2.html');
+                    } else if (text === 'home') {
+                        smoothNavigate('../index.html');
+                    } else {
+                        alert('Navigation: ' + text.charAt(0).toUpperCase() + text.slice(1));
+                    }
+                });
+            });
+
+            // Handle search button click
+            searchBtn.addEventListener('click', () => {
+                const query = searchInput.value;
+                if (query) {
+                    alert(`Searching for: "${query}"`);
+                } else {
+                    alert('Please enter a search query!');
+                }
+            });
+
+            // Handle product card clicks
+            productCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    const title = card.getAttribute('data-product');
+                    alert(`Playing video for "${title}"`);
+                });
+            });
+        });
+
+        // Simple alert for demonstration purposes. In a real app, a modal would be used.
+        function alert(message) {
+            const alertBox = document.createElement('div');
+            alertBox.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: #4a4a4a;
+                color: white;
+                padding: 1rem 2rem;
+                border-radius: 0.75rem;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+                z-index: 1000;
+                font-family: 'Inter', sans-serif;
+                font-size: 1rem;
+                text-align: center;
+                animation: fadein 0.3s, fadeout 0.3s 2s;
+            `;
+            alertBox.textContent = message;
+            document.body.appendChild(alertBox);
+
+            setTimeout(() => {
+                alertBox.remove();
+            }, 2500);
+        }
+    </script>
+</body>
+</html>
