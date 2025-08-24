@@ -220,9 +220,9 @@
                     e.preventDefault();
                     const text = link.textContent.trim().toLowerCase();
                     if (text === 'products') {
-                        smoothNavigate('../page2.html');
+                        smoothNavigate('page2.html');
                     } else if (text === 'home') {
-                        smoothNavigate('../index.html');
+                        smoothNavigate('index.html');
                     } else {
                         alert('Navigation: ' + text.charAt(0).toUpperCase() + text.slice(1));
                     }
@@ -277,3 +277,4 @@
     </script>
 </body>
 </html>
+
